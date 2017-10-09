@@ -24,7 +24,7 @@ export class LikeButton extends Component {
   render () {
     return (
       <div>
-        <button onClick={this.handleClick} style={{background: this.state.color}}>like</button>
+        <button onClick={this.handleClick} style={{background: this.state.color, display: this.state.display}}>like</button>
       </div>
     )
   }
