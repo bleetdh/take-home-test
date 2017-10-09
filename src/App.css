@@ -26,5 +26,10 @@ button {
   right: 20px;
   bottom: 10px;
   position: absolute;
-  background-color: white;
+  background: white;
+  display: none;
+}
+
+.picture:hover button{
+  display: inline;
 }
