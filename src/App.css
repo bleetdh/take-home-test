@@ -26,8 +26,7 @@ button {
   right: 20px;
   bottom: 10px;
   position: absolute;
-  /*background: white;*/
-  /*display: none;*/
+  display: none;
 }
 
 .picture:hover button{

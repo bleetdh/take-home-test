@@ -4,28 +4,39 @@ export class LikeButton extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      display: 'none',
-      color: 'white'
+      isItLike: null
     }
     this.handleClick = this.handleClick.bind(this)
   }
   // - upon click, button to change color and remain there
   handleClick () {
-    const newColor = this.state.color === 'white' ? 'red' : 'white'
-    const newDisplay = this.state.display === 'none' ? 'inline' : 'none'
+    const newStatus = this.state.isItLike === null ? true : null
     this.setState({
-      display: newDisplay,
-      color: newColor
+      isItLike: newStatus
     })
-    console.log(this.state.color)
-    console.log(this.state.display)
   }
 
   render () {
-    return (
-      <div>
-        <button onClick={this.handleClick} style={{background: this.state.color, display: this.state.display}}>like</button>
-      </div>
-    )
+    const defaultStyle = {
+      backgroundColor: 'white'
+    }
+    const clickedStyle = {
+      backgroundColor: 'red',
+      display: 'inline'
+    }
+
+    if (this.state.isItLike) {
+      return (
+        <div>
+          <button onClick={this.handleClick} style={clickedStyle}>like</button>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <button onClick={this.handleClick} style={defaultStyle}>like</button>
+        </div>
+      )
+    }
   }
 }
