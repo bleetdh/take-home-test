@@ -25,20 +25,30 @@ export class Picture extends Component {
     .then((data) => {
       // console.log(data)
       var results = (data.data)
+      var picUrlArrayToUpdate = []
       for (var i = 0; i < results.length; i++) {
-        this.state.picUrl.push(results[i].images.original)
+        picUrlArrayToUpdate.push(results[i].images.original.url)
       }
-      console.log('picUrl', this.state.picUrl)
+      console.log('picUrlArrayToUpdate', picUrlArrayToUpdate)
+      this.setState({
+        picUrl: picUrlArrayToUpdate
+      })
     })
   }
 
   render () {
+    let displayPic = this.state.picUrl.map((url, index) => {
+      return (<img src={url} key={index} />)
+    })
     return (
       <div>
         <h1>hello</h1>
         <form>
           <input type='text' onKeyUp={this.handleKeyUp} placeholder='Start searching for images!' />
         </form>
+        <ul>
+          {displayPic}
+        </ul>
       </div>
     )
   }
