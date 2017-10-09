@@ -13,7 +13,9 @@ export class Picture extends Component {
       return response.json()
     })
     .then((data) => {
-      console.log(data)
+      // console.log(data)
+      var picture = (data.data[0].images.original.url)
+      console.log(picture)
     })
   }
 
