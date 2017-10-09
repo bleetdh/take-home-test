@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
+import {LikeButton} from './LikeButton.js'
 
 export class Picture extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      picUrl: []
+      picUrl: [],
+      isMouseInside: false
     }
     this.handleKeyUp = this.handleKeyUp.bind(this)
+    this.mouseEnter = this.mouseEnter.bind(this)
+    this.mouseLeave = this.mouseLeave.bind(this)
   }
   // - handling API CALL
   handleKeyUp (e) {
@@ -39,14 +43,21 @@ export class Picture extends Component {
       })
     })
   }
-
+  mouseEnter () {
+    this.setState({ isMouseInside: true })
+    console.log(this.state.isMouseInside)
+  }
+  mouseLeave () {
+    this.setState({ isMouseInside: false })
+    console.log(this.state.isMouseInside)
+  }
   render () {
     // - for display of pictures
     let displayPic = this.state.picUrl.map((url, index) => {
       return (
-        <div className='picture' key={index}>
+        <div className='picture' key={index} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
           <img src={url} key={index} />
-          <button>like</button>
+          <LikeButton isMouseInside={this.state.isMouseInside} />
         </div>
       )
     })
