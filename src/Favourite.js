@@ -9,11 +9,9 @@ export class Favourite extends Component {
       )
     })
     return (
-      <div>
-        <h2>Favourited Images</h2>
-        <ul>
+      <div className='favdiv'>
+        <h1>Favourited Images</h1>
           {favPic}
-        </ul>
       </div>
     )
   }

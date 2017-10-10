@@ -12,14 +12,29 @@
 
 .App-title {
   font-size: 1.5em;
+  font-weight: 100;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+a {
+  color: grey;
+  text-decoration: none;
+  margin-left: 20px;
+}
+a:hover {
+  font-weight: bold;
 }
 
 .picture {
   width: 300px;
-  height: 200px;
+  height: 300px;
   margin: 10px 10px 10px 10px;
   display: inline-block;
   background-position: center center;
+  background-size: 200%;
   position:relative;
 }
 
@@ -52,16 +67,25 @@ input {
   font-size: 30px;
 }
 
+.picturediv, .favdiv {
+  margin: 0px auto;
+  width: 80%;
+}
+
 .footer {
-  background-color: lightgrey;
-  width: 100%;
-  text-align: left;
-  padding: 30px;
-  bottom: 0px;
-  position:absolute;
+background-color: lightgrey;
+height: 30px;
+line-height: 30px;
+vertical-align: middle;
+position: absolute;
+bottom: 0;
+font-size: 15px;
+width: 100%;
+text-align: left;
+padding-left: 20px;
 }
 
 .rightside {
-  float:right;
-  margin-right: 80px;
+float:right;
+padding-right: 40px;
 }

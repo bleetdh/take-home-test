@@ -32,7 +32,7 @@ export class Picture extends Component {
           var picUrlArrayToUpdate = []
           // - to push wanted results into empty array
           for (var i = 0; i < results.length; i++) {
-            picUrlArrayToUpdate.push(results[i].images['480w_still'].url)
+            picUrlArrayToUpdate.push(results[i].images.original.url)
           }
           // - giving picUrl the updated array
           this.setState({
@@ -61,13 +61,11 @@ export class Picture extends Component {
         )
       })
       return (
-        <div>
+        <div className='picturediv'>
           <form>
             <input type='text' onKeyUp={this.handleKeyUp} placeholder='Start searching for images!' />
           </form>
-          <ul>
             {displayPic}
-          </ul>
         </div>
       )
     } else {

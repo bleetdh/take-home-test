@@ -40,14 +40,14 @@ class App extends Component {
       <div className='App'>
 
         <header className='App-header'>
-          <h1 className='App-title'>Gallereasy | <a href='#' onClick={this.handleSearchClick}>Search</a> <a href='#' onClick={this.handleFavouriteClick}>Favourites</a></h1>
+          <h1 className='App-title'>Galler<span className='bold'>easy</span> | <a href='#' onClick={this.handleSearchClick}>Search</a> <a href='#' onClick={this.handleFavouriteClick}>Favourites({this.state.favouriteUrlArr.length})</a></h1>
         </header>
         {/* where Picture Component is */}
-        <div className='picturediv' style={{display: this.state.picDisplay}}>
+        <div style={{display: this.state.picDisplay}}>
           <Picture handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
         </div>
         {/* where Favourite Component is */}
-        <div className='favdiv' style={{display: this.state.favDisplay}}>
+        <div style={{display: this.state.favDisplay}}>
           <Favourite favUrl={this.state.favouriteUrlArr} />
         </div>
 
