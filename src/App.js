@@ -33,7 +33,6 @@ class App extends Component {
     this.setState({
       favouriteUrlArr: this.state.favouriteUrlArr.concat([url])
     })
-    console.log(this.state.favouriteUrlArr)
   }
 
   render () {
@@ -43,11 +42,11 @@ class App extends Component {
         <header className='App-header'>
           <h1 className='App-title'>Gallereasy | <a href='#' onClick={this.handleSearchClick}>Search</a> <a href='#' onClick={this.handleFavouriteClick}>Favourites</a></h1>
         </header>
-
+        {/* where Picture Component is */}
         <div className='picturediv' style={{display: this.state.picDisplay}}>
           <Picture handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
         </div>
-
+        {/* where Favourite Component is */}
         <div className='favdiv' style={{display: this.state.favDisplay}}>
           <Favourite favUrl={this.state.favouriteUrlArr} />
         </div>
