@@ -7,7 +7,7 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      searchDisplay: 'inline',
+      picDisplay: 'inline',
       favDisplay: 'none'
     }
     this.handleSearchClick = this.handleSearchClick.bind(this)
@@ -17,13 +17,13 @@ class App extends Component {
   // - use display so as to not 'reload' page upon click
   handleSearchClick (e) {
     this.setState({
-      searchDisplay: 'inline',
+      picDisplay: 'inline',
       favDisplay: 'none'
     })
   }
   handleFavouriteClick (e) {
     this.setState({
-      searchDisplay: 'none',
+      picDisplay: 'none',
       favDisplay: 'inline'
     })
   }
@@ -33,7 +33,7 @@ class App extends Component {
         <header className='App-header'>
           <h1 className='App-title'>Gallereasy | <a href='#' onClick={this.handleSearchClick}>Search</a> <a href='#' onClick={this.handleFavouriteClick}>Favourites</a></h1>
         </header>
-        <div className='picturediv' style={{display: this.state.searchDisplay}}>
+        <div className='picturediv' style={{display: this.state.picDisplay}}>
           <Picture />
         </div>
         <div className='favdiv' style={{display: this.state.favDisplay}}>

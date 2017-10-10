@@ -4,7 +4,8 @@ export class Favourite extends Component {
   render () {
     return (
       <div>
-        <p>Hello</p>
+        <h2>Favourited Images</h2>
+        <ul />
       </div>
     )
   }
