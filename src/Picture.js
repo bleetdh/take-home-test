@@ -17,29 +17,37 @@ export class Picture extends Component {
     // - url for API to be changed
     const url = 'https://api.giphy.com/v1/gifs/search?api_key=rRROY9dnpDWINQuHrcFXhjaa00nLqPPw&q=' + e.target.value + '&limit=8&offset=0&rating=G&lang=en'
     // - setState to empty so that array is constantly refreshing with latest results
+    console.log(e.target.value.length)
     this.setState({
       picUrl: []
     })
-
-    fetch(url)
-    .then((response) => {
-      // console.log(response)
-      return response.json()
-    })
-    .then((data) => {
-      // console.log(data)
-      var results = (data.data)
-      var picUrlArrayToUpdate = []
-      // - to push wanted results into empty array
-      for (var i = 0; i < results.length; i++) {
-        picUrlArrayToUpdate.push(results[i].images['480w_still'].url)
-      }
-      // console.log('picUrlArrayToUpdate', picUrlArrayToUpdate)
-      // - giving picUrl the updated array
-      this.setState({
-        picUrl: picUrlArrayToUpdate
+    if (e.target.value.length > 0) {
+      // - when user starts typing, to fetch url and pushed into picUrlArrayToUpdate
+      fetch(url)
+      .then((response) => {
+        // console.log(response)
+        return response.json()
       })
-    })
+      .then((data) => {
+        // console.log(data)
+        var results = (data.data)
+        var picUrlArrayToUpdate = []
+        // - to push wanted results into empty array
+        for (var i = 0; i < results.length; i++) {
+          picUrlArrayToUpdate.push(results[i].images['480w_still'].url)
+        }
+        // console.log('picUrlArrayToUpdate', picUrlArrayToUpdate)
+        // - giving picUrl the updated array
+        this.setState({
+          picUrl: picUrlArrayToUpdate
+        })
+      })
+    } else {
+      // - in the event that input field is empty
+      this.setState({
+        picUrl: []
+      })
+    }
   }
 
   render () {
@@ -54,7 +62,6 @@ export class Picture extends Component {
       })
       return (
         <div>
-          <h1>Welcome to Gallereasy</h1>
           <form>
             <input type='text' onKeyUp={this.handleKeyUp} placeholder='Start searching for images!' />
           </form>
@@ -64,13 +71,13 @@ export class Picture extends Component {
         </div>
       )
     } else {
+      // - if no results yield
       return (
         <div>
-          <h1>Welcome to Gallereasy</h1>
           <form>
             <input type='text' onKeyUp={this.handleKeyUp} placeholder='Start searching for images!' />
           </form>
-          <p>No results found</p>
+          <p className='noresults'>No results found</p>
         </div>
       )
     }

@@ -3,10 +3,11 @@
 }
 
 .App-header {
-  background-color: yellow;
   height: 50px;
   padding: 20px;
-  color: black;
+  color: grey;
+  border-bottom: 2px solid grey;
+  text-align: left;
 }
 
 .App-title {
@@ -39,9 +40,28 @@ button {
 }
 
 input {
-  width: 50%;
+  width: 65%;
   height: 30px;
-  border: 0 0 2px 0;
+  border-style: none none solid none;
   font-size: 25px;
-  padding: 10px 10px 10px 10px
+  padding: 10px 10px 10px 10px;
+  margin-top: 20px;
+}
+
+.noresults {
+  font-size: 30px;
+}
+
+.footer {
+  background-color: grey;
+  width: 100%;
+  text-align: left;
+  padding: 30px;
+  bottom: 0px;
+  position:absolute;
+}
+
+.rightside {
+  float:right;
+  margin-right: 80px;
 }
