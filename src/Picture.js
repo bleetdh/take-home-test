@@ -65,7 +65,7 @@ export class Picture extends Component {
           <form>
             <input type='text' onKeyUp={this.handleKeyUp} placeholder='Start searching for images!' />
           </form>
-            {displayPic}
+          {displayPic}
         </div>
       )
     } else {

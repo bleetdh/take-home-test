@@ -37,18 +37,20 @@ class App extends Component {
 
   render () {
     return (
-      <div className='App'>
+      <div id='container'>
 
         <header className='App-header'>
           <h1 className='App-title'>Galler<span className='bold'>easy</span> | <a href='#' onClick={this.handleSearchClick}>Search</a> <a href='#' onClick={this.handleFavouriteClick}>Favourites({this.state.favouriteUrlArr.length})</a></h1>
         </header>
-        {/* where Picture Component is */}
-        <div style={{display: this.state.picDisplay}}>
-          <Picture handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
-        </div>
-        {/* where Favourite Component is */}
-        <div style={{display: this.state.favDisplay}}>
-          <Favourite favUrl={this.state.favouriteUrlArr} />
+        <div id='body'>
+          {/* where Picture Component is */}
+          <div style={{display: this.state.picDisplay}}>
+            <Picture handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
+          </div>
+          {/* where Favourite Component is */}
+          <div style={{display: this.state.favDisplay}}>
+            <Favourite favUrl={this.state.favouriteUrlArr} />
+          </div>
         </div>
 
         <div className='footer'>
