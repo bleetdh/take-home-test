@@ -37,3 +37,11 @@ button {
 .picture:hover button{
   display: inline;
 }
+
+input {
+  width: 50%;
+  height: 30px;
+  border: 0 0 2px 0;
+  font-size: 25px;
+  padding: 10px 10px 10px 10px
+}

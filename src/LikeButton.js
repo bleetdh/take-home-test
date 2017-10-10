@@ -17,14 +17,16 @@ export class LikeButton extends Component {
   }
 
   render () {
+    // - define default style first
     const defaultStyle = {
       color: 'rgba(255, 0, 0, 0.3)'
     }
+    // - define clicked style
     const clickedStyle = {
       color: 'rgba(255, 0, 0, 1)',
       display: 'inline'
     }
-
+    // - clicked render
     if (this.state.isItLike) {
       return (
         <div>
@@ -32,6 +34,7 @@ export class LikeButton extends Component {
         </div>
       )
     } else {
+      // -unclicked render
       return (
         <div>
           <button onClick={this.handleClick} style={defaultStyle}>&hearts;</button>

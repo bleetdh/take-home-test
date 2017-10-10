@@ -43,24 +43,36 @@ export class Picture extends Component {
   }
 
   render () {
-    // - for display of pictures
-    let displayPic = this.state.picUrl.map((url, index) => {
+    if (this.state.picUrl.length > 0) {
+      // - for display of pictures
+      let displayPic = this.state.picUrl.map((url, index) => {
+        return (
+          <div className='picture' key={index} style={{backgroundImage: `url(${url})`}}>
+            <LikeButton />
+          </div>
+        )
+      })
       return (
-        <div className='picture' key={index} style={{backgroundImage: `url(${url})`}}>
-          <LikeButton />
+        <div>
+          <h1>Welcome to Gallereasy</h1>
+          <form>
+            <input type='text' onKeyUp={this.handleKeyUp} placeholder='Start searching for images!' />
+          </form>
+          <ul>
+            {displayPic}
+          </ul>
         </div>
       )
-    })
-    return (
-      <div>
-        <h1>hello</h1>
-        <form>
-          <input type='text' onKeyUp={this.handleKeyUp} placeholder='Start searching for images!' />
-        </form>
-        <ul>
-          {displayPic}
-        </ul>
-      </div>
-    )
+    } else {
+      return (
+        <div>
+          <h1>Welcome to Gallereasy</h1>
+          <form>
+            <input type='text' onKeyUp={this.handleKeyUp} placeholder='Start searching for images!' />
+          </form>
+          <p>No results found</p>
+        </div>
+      )
+    }
   }
 }
