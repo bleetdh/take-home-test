@@ -32,7 +32,7 @@ export class Picture extends Component {
       var picUrlArrayToUpdate = []
       // - to push wanted results into empty array
       for (var i = 0; i < results.length; i++) {
-        picUrlArrayToUpdate.push(results[i].images.original.url)
+        picUrlArrayToUpdate.push(results[i].images['480w_still'].url)
       }
       // console.log('picUrlArrayToUpdate', picUrlArrayToUpdate)
       // - giving picUrl the updated array

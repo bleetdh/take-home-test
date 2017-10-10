@@ -14,8 +14,8 @@
 }
 
 .picture {
-  width: 120px;
-  height: 120px;
+  width: 300px;
+  height: 200px;
   margin: 10px 10px 10px 10px;
   display: inline-block;
   background-position: center center;
@@ -23,10 +23,15 @@
 }
 
 button {
+  width: 40px;
+  height: 40px;
   right: 20px;
   bottom: 10px;
   position: absolute;
   display: none;
+  background-color: Transparent;
+  font-size: 35px;
+  border: none;
 }
 
 .picture:hover button{
