@@ -7,13 +7,20 @@ export class LikeButton extends Component {
       isItLike: null
     }
     this.handleClick = this.handleClick.bind(this)
+    this.handleColorChangeClick = this.handleColorChangeClick.bind(this)
+    this.handleFavouriteButtonClick = this.props.handleFavouriteButtonClick
   }
   // - upon click, button to change color and remain there
-  handleClick () {
+  handleColorChangeClick () {
     const newStatus = this.state.isItLike === null ? true : null
     this.setState({
       isItLike: newStatus
     })
+  }
+  // - combine 2 functions into 1 function
+  handleClick (e) {
+    this.handleColorChangeClick()
+    this.handleFavouriteButtonClick(this.props.imageUrl)
   }
 
   render () {

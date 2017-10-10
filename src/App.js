@@ -8,7 +8,8 @@ class App extends Component {
     super(props)
     this.state = {
       picDisplay: 'inline',
-      favDisplay: 'none'
+      favDisplay: 'none',
+      favouriteUrlArr: []
     }
     this.handleSearchClick = this.handleSearchClick.bind(this)
     this.handleFavouriteClick = this.handleFavouriteClick.bind(this)
@@ -27,19 +28,30 @@ class App extends Component {
       favDisplay: 'inline'
     })
   }
+  // - to pass down this function to Picture, then to LikeButton
+  handleFavouriteButtonClick (url) {
+    this.setState({
+      favouriteUrlArr: this.state.favouriteUrlArr.concat([url])
+    })
+    console.log(this.state.favouriteUrlArr)
+  }
+
   render () {
     return (
       <div className='App'>
+
         <header className='App-header'>
           <h1 className='App-title'>Gallereasy | <a href='#' onClick={this.handleSearchClick}>Search</a> <a href='#' onClick={this.handleFavouriteClick}>Favourites</a></h1>
         </header>
+
         <div className='picturediv' style={{display: this.state.picDisplay}}>
-          <Picture />
+          <Picture handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
         </div>
+
         <div className='favdiv' style={{display: this.state.favDisplay}}>
-          <Favourite />
+          <Favourite favUrl={this.state.favouriteUrlArr} />
         </div>
-        {/* {displayedComponent} */}
+
         <div className='footer'>
           <span>Gallereasy POC Web app</span><span className='rightside'>2359 Media</span>
         </div>
