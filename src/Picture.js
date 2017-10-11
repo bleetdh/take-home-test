@@ -71,7 +71,7 @@ export class Picture extends Component {
     } else {
       // - if no results yield
       return (
-        <div>
+        <div className='noresultdiv'>
           <form>
             <input type='text' onKeyUp={this.handleKeyUp} placeholder='Start searching for images!' />
           </form>

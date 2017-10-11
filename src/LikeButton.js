@@ -34,15 +34,15 @@ export class LikeButton extends Component {
       color: 'rgba(255, 0, 0, 1)',
       display: 'inline'
     }
-    // - clicked render
+    // - clicked render (not supposed to update favArr, but supposed to change color only)
     if (this.state.isItLike) {
       return (
         <div>
-          <button onClick={this.handleClick} style={clickedStyle}>&hearts;</button>
+          <button onClick={this.handleColorChangeClick} style={clickedStyle}>&hearts;</button>
         </div>
       )
     } else {
-      // -unclicked render
+      // -unclicked render (supposed to update favArr and change color)
       return (
         <div>
           <button onClick={this.handleClick} style={defaultStyle}>&hearts;</button>

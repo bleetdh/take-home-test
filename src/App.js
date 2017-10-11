@@ -39,7 +39,7 @@ class App extends Component {
     return (
       <div id='container'>
 
-        <header className='App-header'>
+        <header id='header'>
           <h1 className='App-title'>Galler<span className='bold'>easy</span> | <a href='#' onClick={this.handleSearchClick}>Search</a> <a href='#' onClick={this.handleFavouriteClick}>Favourites({this.state.favouriteUrlArr.length})</a></h1>
         </header>
         <div id='body'>
@@ -53,7 +53,7 @@ class App extends Component {
           </div>
         </div>
 
-        <div className='footer'>
+        <div id='footer'>
           <span>Gallereasy POC Web app</span><span className='rightside'>2359 Media</span>
         </div>
       </div>

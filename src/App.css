@@ -1,17 +1,10 @@
-html,
-body {
-   margin: 0;
-   padding: 0;
-   height: 100%;
-}
-
 #container {
   text-align: center;
-  min-height: 100%;
   position: relative;
 }
 
-.App-header {
+/*HEADER*/
+#header {
   height: 50px;
   padding: 20px;
   color: grey;
@@ -28,11 +21,6 @@ body {
   font-weight: bold;
 }
 
-#body {
-   padding:10px;
-   padding-bottom:60px;
-}
-
 a {
   color: grey;
   text-decoration: none;
@@ -40,6 +28,28 @@ a {
 }
 a:hover {
   font-weight: bold;
+}
+/*BODY*/
+#body {
+   padding:10px;
+}
+
+.picturediv, .favdiv {
+  margin: 0px auto 40px auto;
+}
+
+.favdiv {
+  min-height: 79vh;
+}
+
+input {
+  width: 65%;
+  height: 30px;
+  border-style: none none solid none;
+  border-color: grey;
+  font-size: 25px;
+  padding: 10px 10px 10px 10px;
+  margin-top: 20px;
 }
 
 .picture {
@@ -68,30 +78,27 @@ button {
   display: inline;
 }
 
-input {
-  width: 65%;
-  height: 30px;
-  border-style: none none solid none;
-  border-color: grey;
-  font-size: 25px;
-  padding: 10px 10px 10px 10px;
-  margin-top: 20px;
-}
-
+/*BODY but no results*/
 .noresults {
   font-size: 30px;
 }
 
-.picturediv, .favdiv {
-  margin: 0px auto;
+.noresultdiv {
+  min-height: 83vh;
 }
 
-.footer {
+.nofavdiv {
+  min-height: 79vh;
+}
+
+/*FOOTER*/
+
+#footer {
 background-color: lightgrey;
-height: 30px;
-line-height: 30px;
+height: 6vh;
+line-height: 6vh;
 vertical-align: middle;
-position: absolute;
+position: fixed;
 bottom: 0;
 font-size: 15px;
 width: 100%;
@@ -102,4 +109,24 @@ padding-left: 20px;
 .rightside {
 float:right;
 padding-right: 40px;
+}
+
+/*for phone screen*/
+@media screen and (max-width: 440px){
+  #header {
+    height: 30px;
+  }
+  .App-title, input, .noresults {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .App-title, input {
+    font-size: 0.9em;
+  }
+  .picture {
+    width: 250px;
+    height: 250px;
+  }
 }
