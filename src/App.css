@@ -56,6 +56,7 @@ input {
   overflow: hidden;
   position:relative;
 }
+
 .picture img {
   height: 500px;
   margin-left: 50%;

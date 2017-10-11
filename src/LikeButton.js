@@ -6,7 +6,7 @@ export class LikeButton extends Component {
     this.state = {
       loading: props.loading
     }
-    // - function comes from App
+    // - function comes from App component
     this.handleFavouriteButtonClick = this.props.handleFavouriteButtonClick
   }
 

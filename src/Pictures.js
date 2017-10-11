@@ -86,7 +86,7 @@ export class Pictures extends Component {
 
   render () {
     if (this.state.picUrlArr.length > 0) {
-      // - for passing of url of pictures to IndividualPic component
+      // - for passing of url of all pictures to IndividualPic component
       let displayPic = this.state.picUrlArr.map((url, index) => {
         return (
           <div className='picture' key={index} >

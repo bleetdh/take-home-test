@@ -4,12 +4,12 @@ import {IndividualPic} from './IndividualPic.js'
 export class Favourites extends Component {
   constructor (props) {
     super(props)
-    // - to pass to UnlikeFavourite
+    // - to pass to UnlikeFavourite component
     this.handleFavouriteButtonClick = this.props.handleFavouriteButtonClick
   }
   render () {
     if (this.props.favUrl.length > 0) {
-      // - passing url of favPicArr to IndividualPic
+      // - passing url of favPicArr to IndividualPic component
       let favPic = this.props.favUrl.map((url, index) => {
         return (
           <div className='picture' key={index} >

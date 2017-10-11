@@ -28,7 +28,7 @@ class App extends Component {
       favDisplay: 'inline'
     })
   }
-  // - to pass down this function to Picture,then to IndividualPic then to LikeButton
+  // - to pass down this function to Picture,then to IndividualPic then to LikeButton component
   handleFavouriteButtonClick (url) {
     let favouriteUrlArr = this.state.favouriteUrlArr
     // - check to see if favouriteUrlArr has the url
@@ -49,7 +49,7 @@ class App extends Component {
   render () {
     return (
       <div id='container'>
-
+        {/* a to be used for clicking to change pic and fav */}
         <header id='header'>
           <h1 className='App-title'>Galler<span className='bold'>easy</span> | <a href='#' onClick={this.handleSearchClick}>Search</a> <a href='#' onClick={this.handleFavouriteClick}>Favourites({this.state.favouriteUrlArr.length})</a></h1>
         </header>
