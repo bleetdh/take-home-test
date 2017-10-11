@@ -7,6 +7,7 @@ export class FavouritePic extends Component {
     this.state = {
       urlOfPic: props.url
     }
+    // - to pass to UnlikeFavourite
     this.handleFavouriteButtonClick = this.props.handleFavouriteButtonClick
   }
   render () {
