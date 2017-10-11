@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import {LikeButton} from './LikeButton.js'
+import {Loader} from './Loader.js'
 
 export class Picture extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      picUrl: []
+      picUrl: [],
+      loadFinish: false
     }
     this.handleKeyUp = this.handleKeyUp.bind(this)
+    this.loadedFinish = this.loadedFinish.bind(this)
     // - need to pass this down again to LikeButton
     this.handleFavouriteButtonClick = this.props.handleFavouriteButtonClick
   }
@@ -50,12 +53,21 @@ export class Picture extends Component {
     }
   }
 
+  loadedFinish () {
+    this.setState({
+      loadFinish: true
+    })
+    console.log(this.state.loadFinish)
+  }
+
   render () {
     if (this.state.picUrl.length > 0) {
       // - for display of pictures from the url from API
       let displayPic = this.state.picUrl.map((url, index) => {
         return (
-          <div className='picture' key={index} style={{backgroundImage: `url(${url})`}}>
+          <div className='picture' key={index} >
+            <img src={url} onLoad={this.loadedFinish} />
+            <Loader loadFinish={this.state.loadFinish} />
             <LikeButton imageUrl={url} handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
           </div>
         )
@@ -71,7 +83,7 @@ export class Picture extends Component {
     } else {
       // - if no results yield
       return (
-        <div className='noresultdiv'>
+        <div>
           <form>
             <input type='text' onKeyUp={this.handleKeyUp} placeholder='Start searching for images!' />
           </form>

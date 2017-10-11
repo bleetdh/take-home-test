@@ -6,18 +6,20 @@ export class Favourite extends Component {
       // - adding pics using url that user has favourited
       let favPic = this.props.favUrl.map((url, index) => {
         return (
-          <div className='picture' key={index} style={{backgroundImage: `url(${url})`}} />
+          <div className='picture' key={index} >
+            <img src={url} />
+          </div>
         )
       })
       return (
-        <div className='favdiv'>
+        <div>
           <h1>Favourited Images</h1>
           {favPic}
         </div>
       )
     } else {
       return (
-        <div className='nofavdiv'>
+        <div>
           <p className='noresults'>No favourites found</p>
         </div>
       )

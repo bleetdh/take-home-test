@@ -1,6 +1,3 @@
-html {
-  min-height: 100vh;
-}
 #container {
   text-align: center;
   position: relative;
@@ -41,10 +38,6 @@ a:hover {
   margin: 0px auto 40px auto;
 }
 
-.favdiv {
-  min-height: 79vh;
-}
-
 input {
   width: 65%;
   height: 30px;
@@ -60,9 +53,18 @@ input {
   height: 300px;
   margin: 10px 10px 10px 10px;
   display: inline-block;
-  background-position: center center;
-  background-size: 200%;
+  overflow: hidden;
   position:relative;
+}
+.picture img {
+  height: 500px;
+  margin-left: 50%;
+  margin-top: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+.loader {
+  margin: 50px auto 0 auto;
 }
 
 button {
@@ -84,14 +86,6 @@ button {
 /*BODY but no results*/
 .noresults {
   font-size: 30px;
-}
-
-.noresultdiv {
-  min-height: 83vh;
-}
-
-.nofavdiv {
-  min-height: 79vh;
 }
 
 /*FOOTER*/
