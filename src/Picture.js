@@ -7,7 +7,7 @@ export class Picture extends Component {
     super(props)
     this.state = {
       picUrl: [],
-      loadFinish: false
+      loading: true
     }
     this.handleKeyUp = this.handleKeyUp.bind(this)
     this.loadedFinish = this.loadedFinish.bind(this)
@@ -22,7 +22,8 @@ export class Picture extends Component {
     // - setState to empty so that array is constantly refreshing with latest results
     // console.log(e.target.value.length)
     this.setState({
-      picUrl: []
+      picUrl: [],
+      loading: true
     })
     if (e.target.value.length > 0) {
       // - when user starts typing, to fetch url and pushed into picUrlArrayToUpdate
@@ -52,12 +53,11 @@ export class Picture extends Component {
       })
     }
   }
-
+  // - to be used for loader to stop
   loadedFinish () {
     this.setState({
-      loadFinish: true
+      loading: false
     })
-    console.log(this.state.loadFinish)
   }
 
   render () {
@@ -67,7 +67,7 @@ export class Picture extends Component {
         return (
           <div className='picture' key={index} >
             <img src={url} onLoad={this.loadedFinish} />
-            <Loader loadFinish={this.state.loadFinish} />
+            <Loader loading={this.state.loading} />
             <LikeButton imageUrl={url} handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
           </div>
         )

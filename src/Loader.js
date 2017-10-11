@@ -1,6 +1,21 @@
 import React from 'react'
-import ReactLoading from 'react-loading'
+import { BarLoader } from 'react-spinners'
 
-export const Loader = ({ type, color }) => (
-  <ReactLoading type='spin' color='black' height='50px' width='50px' className='loader' />
-)
+export class Loader extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      loading: true
+    }
+  }
+  render () {
+    return (
+      <div className='sweet-loading'>
+        <BarLoader
+          color={'grey'}
+          loading={this.state.loading}
+        />
+      </div>
+    )
+  }
+}
