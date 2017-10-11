@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {FavouritePic} from './FavouritePic.js'
+import {IndividualPic} from './IndividualPic.js'
 
 export class Favourites extends Component {
   constructor (props) {
@@ -9,11 +9,11 @@ export class Favourites extends Component {
   }
   render () {
     if (this.props.favUrl.length > 0) {
-      // - passing url of favPicArr to FavouritePic
+      // - passing url of favPicArr to IndividualPic
       let favPic = this.props.favUrl.map((url, index) => {
         return (
           <div className='picture' key={index} >
-            <FavouritePic
+            <IndividualPic
               url={url}
               favouriteUrlArr={this.props.favUrl}
               handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
