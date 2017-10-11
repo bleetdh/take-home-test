@@ -69,7 +69,7 @@ input {
   top: 0px;
 }
 
-button {
+.likebutton {
   width: 40px;
   height: 40px;
   right: 20px;
@@ -81,8 +81,14 @@ button {
   border: none;
 }
 
-.picture:hover button{
+.picture:hover .likebutton{
   display: inline;
+}
+
+.fetchmore {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
 }
 
 /*BODY but no results*/

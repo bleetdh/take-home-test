@@ -24,14 +24,14 @@ export class LikeButton extends Component {
     if (this.props.favouriteUrlArr.includes(this.props.imageUrl)) {
       return (
         <div>
-          <button onClick={(url) => { this.handleFavouriteButtonClick(this.props.imageUrl) }} style={clickedStyle}>&hearts;</button>
+          <button className='likebutton' onClick={(url) => { this.handleFavouriteButtonClick(this.props.imageUrl) }} style={clickedStyle}>&hearts;</button>
         </div>
       )
     } else {
         // - unclicked render (supposed to add to favourite and change heart color)
       return (
         <div>
-          <button onClick={(url) => { this.handleFavouriteButtonClick(this.props.imageUrl) }} style={defaultStyle}>&hearts;</button>
+          <button className='likebutton' onClick={(url) => { this.handleFavouriteButtonClick(this.props.imageUrl) }} style={defaultStyle}>&hearts;</button>
         </div>
       )
     }
