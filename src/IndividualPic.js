@@ -17,14 +17,17 @@ export class IndividualPic extends Component {
     this.setState({
       loading: false
     })
-    console.log('indipic', this.state.loading)
   }
   render () {
     return (
       <div>
         <img onLoad={this.loadedFinish} src={this.props.url} />
         <Loader loading={this.state.loading} />
-        <LikeButton imageUrl={this.props.url} handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
+        <LikeButton
+          loading={this.state.loading}
+          imageUrl={this.props.url}
+          favouriteUrlArr={this.props.favouriteUrlArr}
+          handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
       </div>
     )
   }

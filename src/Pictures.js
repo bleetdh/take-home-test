@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import {IndividualPic} from './IndividualPic.js'
 
-export class Picture extends Component {
+export class Pictures extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      picUrl: [],
+      picUrlArr: [],
       loading: true
     }
     this.handleKeyUp = this.handleKeyUp.bind(this)
@@ -13,15 +13,14 @@ export class Picture extends Component {
     this.handleFavouriteButtonClick = this.props.handleFavouriteButtonClick
   }
 
-  // - handling API CALL
+  // - trigger and handling API CALL
   handleKeyUp (e) {
     console.log('picture', this.state.loading)
     // - url for API, e.target.value is the one that is changing
     const url = 'https://api.giphy.com/v1/gifs/search?api_key=rRROY9dnpDWINQuHrcFXhjaa00nLqPPw&q=' + e.target.value + '&limit=8&offset=0&rating=G&lang=en'
     // - setState to empty so that array is constantly refreshing with latest results
-    // console.log(e.target.value.length)
     this.setState({
-      picUrl: [],
+      picUrlArr: [],
       loading: true
     })
     if (e.target.value.length > 0) {
@@ -37,9 +36,9 @@ export class Picture extends Component {
           for (var i = 0; i < results.length; i++) {
             picUrlArrayToUpdate.push(results[i].images.original.url)
           }
-          // - giving picUrl the updated array
+          // - giving picUrlArr the updated array
           this.setState({
-            picUrl: picUrlArrayToUpdate
+            picUrlArr: picUrlArrayToUpdate
           })
         })
         .catch((err) => {
@@ -48,18 +47,22 @@ export class Picture extends Component {
     } else {
       // - in the event that input field is empty
       this.setState({
-        picUrl: []
+        picUrlArr: []
       })
     }
   }
 
   render () {
-    if (this.state.picUrl.length > 0) {
-      // - for display of pictures from the url from API
-      let displayPic = this.state.picUrl.map((url, index) => {
+    if (this.state.picUrlArr.length > 0) {
+      // - for passing of url of pictures to IndividualPic component
+      let displayPic = this.state.picUrlArr.map((url, index) => {
         return (
           <div className='picture' key={index} >
-            <IndividualPic url={url} loading={this.state.loading} handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
+            <IndividualPic
+              url={url}
+              loading={this.state.loading}
+              favouriteUrlArr={this.props.favouriteUrlArr}
+              handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
           </div>
         )
       })

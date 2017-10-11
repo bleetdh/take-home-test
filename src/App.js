@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
-import {Picture} from './Picture.js'
-import {Favourite} from './Favourite.js'
+import {Pictures} from './Pictures.js'
+import {Favourites} from './Favourites.js'
 
 class App extends Component {
   constructor (props) {
@@ -14,7 +14,7 @@ class App extends Component {
     this.handleSearchClick = this.handleSearchClick.bind(this)
     this.handleFavouriteClick = this.handleFavouriteClick.bind(this)
   }
-  // - for toogling between search and fav
+  // - for toogling between search and favourite component to appear
   // - use display so as to not 'reload' page upon click
   handleSearchClick (e) {
     this.setState({
@@ -28,11 +28,22 @@ class App extends Component {
       favDisplay: 'inline'
     })
   }
-  // - to pass down this function to Picture, then to LikeButton
+  // - to pass down this function to Picture,then to IndividualPic then to LikeButton
   handleFavouriteButtonClick (url) {
-    this.setState({
-      favouriteUrlArr: this.state.favouriteUrlArr.concat([url])
-    })
+    let favouriteUrlArr = this.state.favouriteUrlArr
+    // - check to see if favouriteUrlArr has the url
+    // - if no, add in url
+    // - if yes, remove url
+    if (!(favouriteUrlArr.includes(url))) {
+      this.setState({
+        favouriteUrlArr: favouriteUrlArr.concat([url])
+      })
+    } else {
+      favouriteUrlArr.splice(favouriteUrlArr.indexOf(url), 1)
+      this.setState({
+        favouriteUrlArr: favouriteUrlArr
+      })
+    }
   }
 
   render () {
@@ -45,11 +56,16 @@ class App extends Component {
         <div id='body'>
           {/* where Picture Component is */}
           <div style={{display: this.state.picDisplay}}>
-            <Picture handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
+            <Pictures
+              favouriteUrlArr={this.state.favouriteUrlArr}
+              handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }}
+            />
           </div>
           {/* where Favourite Component is */}
           <div style={{display: this.state.favDisplay}}>
-            <Favourite favUrl={this.state.favouriteUrlArr} />
+            <Favourites favUrl={this.state.favouriteUrlArr}
+              handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }}
+             />
           </div>
         </div>
 
