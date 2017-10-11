@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import {LikeButton} from './LikeButton.js'
-import {Loader} from './Loader.js'
+import {IndividualPic} from './IndividualPic.js'
 
 export class Picture extends Component {
   constructor (props) {
@@ -10,13 +9,13 @@ export class Picture extends Component {
       loading: true
     }
     this.handleKeyUp = this.handleKeyUp.bind(this)
-    this.loadedFinish = this.loadedFinish.bind(this)
     // - need to pass this down again to LikeButton
     this.handleFavouriteButtonClick = this.props.handleFavouriteButtonClick
   }
 
   // - handling API CALL
   handleKeyUp (e) {
+    console.log('picture', this.state.loading)
     // - url for API, e.target.value is the one that is changing
     const url = 'https://api.giphy.com/v1/gifs/search?api_key=rRROY9dnpDWINQuHrcFXhjaa00nLqPPw&q=' + e.target.value + '&limit=8&offset=0&rating=G&lang=en'
     // - setState to empty so that array is constantly refreshing with latest results
@@ -53,12 +52,6 @@ export class Picture extends Component {
       })
     }
   }
-  // - to be used for loader to stop
-  loadedFinish () {
-    this.setState({
-      loading: false
-    })
-  }
 
   render () {
     if (this.state.picUrl.length > 0) {
@@ -66,9 +59,7 @@ export class Picture extends Component {
       let displayPic = this.state.picUrl.map((url, index) => {
         return (
           <div className='picture' key={index} >
-            <img src={url} onLoad={this.loadedFinish} />
-            <Loader loading={this.state.loading} />
-            <LikeButton imageUrl={url} handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
+            <IndividualPic url={url} loading={this.state.loading} handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />
           </div>
         )
       })
