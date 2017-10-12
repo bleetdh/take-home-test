@@ -5,7 +5,7 @@
 
 /*HEADER*/
 #header {
-  height: 50px;
+  height: 8vh;
   padding: 20px;
   color: grey;
   border-bottom: 2px solid grey;
@@ -13,7 +13,7 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 3vh;
   font-weight: 100;
 }
 
@@ -40,18 +40,18 @@ a:hover {
 
 input {
   width: 65%;
-  height: 30px;
+  height: 5vh;
   border-style: none none solid none;
   border-color: grey;
-  font-size: 25px;
+  font-size: 3vh;
   padding: 10px 10px 10px 10px;
   margin-top: 20px;
 }
 
 .picture {
-  width: 300px;
-  height: 300px;
-  margin: 5px;
+  width: 20vw;
+  height: 40vh;
+  margin: 1%;
   display: inline-block;
   overflow: hidden;
   position:relative;
@@ -61,7 +61,7 @@ input {
   height: 500px;
   margin-left: 50%;
   margin-top: 50%;
-  -webkit-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
 }
 
 .sweet-loading {
@@ -87,14 +87,14 @@ input {
 }
 
 .fetchmore {
-  width: 200px;
-  height: 50px;
-  font-size: 20px;
+  width: 15vw;
+  height: 10vh;
+  font-size: 3vh;
 }
 
 /*BODY but no results*/
 .noresults {
-  font-size: 30px;
+  font-size: 5vh;
 }
 
 /*FOOTER*/
@@ -107,32 +107,31 @@ line-height: 6vh;
 vertical-align: middle;
 position: fixed;
 bottom: 0;
-font-size: 15px;
+font-size: 2vh;
 text-align: left;
-padding-left: 20px;
+padding-left: 1vw;
 }
 
 .rightside {
 float:right;
-padding-right: 40px;
+padding-right: 2vw;
 }
 
 /*for phone screen*/
 @media screen and (max-width: 440px){
   #header {
-    height: 30px;
+    height: 6vh;
   }
   .App-title, input, .noresults {
-    font-size: 1em;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .App-title, input {
-    font-size: 0.9em;
+    font-size: 2.5vh;
   }
   .picture {
-    width: 250px;
-    height: 250px;
+    width: 80vw;
+    height: 40vh;
+  }
+  .fetchmore {
+    width: 40vw;
+    height: 10vh;
+    font-size: 3vh;
   }
 }
