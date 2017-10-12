@@ -24,7 +24,6 @@ export class IndividualPic extends Component {
         <img onLoad={this.loadedFinish} src={this.props.url} />
         <Loader loading={this.state.loading} />
         <LikeButton
-          loading={this.state.loading}
           imageUrl={this.props.url}
           favouriteUrlArr={this.props.favouriteUrlArr}
           handleFavouriteButtonClick={(url) => { this.handleFavouriteButtonClick(url) }} />

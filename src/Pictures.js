@@ -16,7 +16,7 @@ export class Pictures extends Component {
     this.handleFavouriteButtonClick = this.props.handleFavouriteButtonClick
   }
 
-  // - trigger and handling API CALL
+  // - trigger and handle API CALL
   fetchAPI (e) {
     // - url for API, e.target.value is the one that is changing
     let url = `https://api.giphy.com/v1/gifs/search?api_key=rRROY9dnpDWINQuHrcFXhjaa00nLqPPw&q=${e.target.value}&limit=8&offset=0&rating=G&lang=en`
@@ -36,11 +36,11 @@ export class Pictures extends Component {
         .then((data) => {
           var results = (data.data)
           var picUrlArrayToUpdate = []
-          // - to push wanted results into empty array
+          // - to push wanted results into picUrlArrayToUpdate
           for (var i = 0; i < results.length; i++) {
             picUrlArrayToUpdate.push(results[i].images.original.url)
           }
-          // - giving picUrlArr the updated array
+          // - giving picUrlArr the updated array which is picUrlArrayToUpdate
           this.setState({
             picUrlArr: picUrlArrayToUpdate
           })
@@ -57,7 +57,7 @@ export class Pictures extends Component {
   }
 
   fetchMoreAPI () {
-    // - to set offset value for the new api url to be called
+    // - to set offset value for the new search query
     // - only have to change the picUrlArr and counter from state
     var offset = (this.state.counter) * 8
     let url = `https://api.giphy.com/v1/gifs/search?api_key=rRROY9dnpDWINQuHrcFXhjaa00nLqPPw&q=${this.state.query}&limit=8&offset=${offset}&rating=G&lang=en`

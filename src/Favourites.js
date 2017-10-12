@@ -4,7 +4,7 @@ import {IndividualPic} from './IndividualPic.js'
 export class Favourites extends Component {
   constructor (props) {
     super(props)
-    // - to pass to UnlikeFavourite component
+    // - to pass to UnlikeFavourite component from App component
     this.handleFavouriteButtonClick = this.props.handleFavouriteButtonClick
   }
   render () {

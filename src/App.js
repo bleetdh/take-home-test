@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       picDisplay: 'inline',
       favDisplay: 'none',
-      favouriteUrlArr: []
+      favouriteUrlArr: [] // - need to pass this state all the way down to LikeButton component
     }
     this.handleSearchClick = this.handleSearchClick.bind(this)
     this.handleFavouriteClick = this.handleFavouriteClick.bind(this)
@@ -49,7 +49,7 @@ class App extends Component {
   render () {
     return (
       <div id='container'>
-        {/* a to be used for clicking to change pic and fav */}
+        {/* <a> to be used for clicking to change between Pic and Fav Component */}
         <header id='header'>
           <h1 className='App-title'>Galler<span className='bold'>easy</span> | <a href='#' onClick={this.handleSearchClick}>Search</a> <a href='#' onClick={this.handleFavouriteClick}>Favourites({this.state.favouriteUrlArr.length})</a></h1>
         </header>

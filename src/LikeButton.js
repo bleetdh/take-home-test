@@ -20,7 +20,7 @@ export class LikeButton extends Component {
       color: 'rgba(255, 0, 0, 1)',
       display: 'inline'
     }
-      // - clicked render (update heart color and to remove from favourite)
+      // - clicked render(already favourited pic) (lighten heart color and to remove from favouriteUrlArr)
     if (this.props.favouriteUrlArr.includes(this.props.imageUrl)) {
       return (
         <div>
@@ -28,7 +28,7 @@ export class LikeButton extends Component {
         </div>
       )
     } else {
-        // - unclicked render (supposed to add to favourite and change heart color)
+        // - unclicked render (supposed to add to favouriteUrlArr and darken heart color)
       return (
         <div>
           <button className='likebutton' onClick={(url) => { this.handleFavouriteButtonClick(this.props.imageUrl) }} style={defaultStyle}>&hearts;</button>
